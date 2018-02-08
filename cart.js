@@ -1,18 +1,21 @@
 const cars = require('./data/cars');
 
 module.exports = {
-  cart: null,
-  total: null,
+  cart: [],
+  total: 0,
 
-  addToCart: function() {
-
+  addToCart: function(car) {
+    this.cart.push(car)
+    this.total += car.price;
   },
 
-  removeFromCart: function() {
-
+  removeFromCart: function(index, value) {
+    this.cart.splice(index, 1)
+    this.total -= value
   },
   
   checkout: function() {
-
+    this.cart = []
+    this.total = 0
   }
 };
